@@ -13,7 +13,7 @@ public class PlayerScript : MonoBehaviour
     public static int k;
 
     Vector3 targetPosition = new Vector3(-7.0f, 0.5f, 0.0f);
-    float yThreshold = -6.0f;
+    float yThreshold = -12.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -67,7 +67,7 @@ public class PlayerScript : MonoBehaviour
             RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector3.down, 1, LayerMask.GetMask("Platform"));
             if (rayHit.collider != null)
             {
-                if (rayHit.distance < 0.2f)
+                if (rayHit.distance < 0.3f)
                     anim.SetBool("jumping", false);
             }
         }
