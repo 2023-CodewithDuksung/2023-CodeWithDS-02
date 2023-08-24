@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
-  - Item
+  - Fruit
+  - Me
   layers:
   - Default
   - TransparentFX
@@ -13,12 +13,12 @@ TagManager:
   - 
   - Water
   - UI
-  - Platform
-  - Start
-  - Enemy
-  - Player
-  - PlayerDameged
-  - Item
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
