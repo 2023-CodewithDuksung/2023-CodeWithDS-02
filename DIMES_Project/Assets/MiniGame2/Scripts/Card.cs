@@ -17,6 +17,7 @@ public class Card : MonoBehaviour
     private bool isFlipped = false;
     private bool isFlipping = false;
     private bool isMatched = false;
+
     public int cardID;
 
     public void SetCardID(int id)
