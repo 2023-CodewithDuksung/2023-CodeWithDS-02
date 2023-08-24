@@ -33,6 +33,15 @@ public class GameManager : MonoBehaviour
         StartCoroutine("FlipAllCardsRoutine");
     }
 
+    public void NextStage()
+    {
+        stageIndex++;
+        totalStar += stageStar
+        stageStar = 0;
+        totalHP += stageHP;
+        stageHP = 0;
+    }
+
     IEnumerator FlipAllCardsRoutine()
     {
         isFlipping = true;
