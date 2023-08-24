@@ -11,6 +11,10 @@ public class PlayerScript : MonoBehaviour
     Animator anim;
 
     public static int k;
+
+    Vector3 targetPosition = new Vector3(-7.0f, 0.5f, 0.0f);
+    float yThreshold = -6.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +72,14 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
+
+        if(transform.position.y <= yThreshold)
+        {
+            transform.position = targetPosition;
+        }
+
     }
+
+ 
 
 }
