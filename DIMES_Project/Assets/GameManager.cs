@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     private bool isFlipping = false;
     private int matchesFound = 0;
     private int totalMatches = 10;
+    
+    public int totalHP;
+    public int stageHP;
+    public int stageIndex;
 
     private void Awake()
     {

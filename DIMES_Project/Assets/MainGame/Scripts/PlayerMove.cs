@@ -16,7 +16,6 @@ public class PlayerMove : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-
     }
 
     // Update is called once per frame
@@ -80,6 +79,8 @@ public class PlayerMove : MonoBehaviour
         if(collision.gameObject.tag == "Item")
         {
             //point
+            if(GameManager.instance.stageHP < 5)
+                GameManager.instance.stageHP += 1;
 
             //Deactive Item
             collision.gameObject.SetActive(false);
