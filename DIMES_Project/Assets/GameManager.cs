@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     private int totalMatches = 10;
     public int totalHP;
     public int stageHP;
+    public int totalStar;
+    public int stageStar;
     public int stageIndex;
 
     private void Awake()
