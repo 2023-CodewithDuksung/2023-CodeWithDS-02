@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     public void NextStage()
     {
         stageIndex++;
-        totalStar += stageStar
+        totalStar += stageStar;
         stageStar = 0;
         totalHP += stageHP;
         stageHP = 0;
