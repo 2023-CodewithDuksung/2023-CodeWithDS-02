@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     
     public int totalHP;
     public int stageHP;
+    public int totalStar;
+    public int stageStar;
     public int stageIndex;
 
     private void Awake()
@@ -30,6 +32,15 @@ public class GameManager : MonoBehaviour
         allCards = board.GetCards();
 
         StartCoroutine("FlipAllCardsRoutine");
+    }
+
+    public void NextStage()
+    {
+        stageIndex++;
+        totalStar += stageStar;
+        stageStar = 0;
+        totalHP += stageHP;
+        stageHP = 0;
     }
 
     IEnumerator FlipAllCardsRoutine()

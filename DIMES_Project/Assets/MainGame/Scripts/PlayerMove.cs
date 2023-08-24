@@ -78,9 +78,13 @@ public class PlayerMove : MonoBehaviour
     {
         if(collision.gameObject.tag == "Item")
         {
+            bool isApple = collision.gameObject.name.Contains("Apple");
+            bool isStar = collision.gameObject.name.Contains("Star");
             //point
-            if(GameManager.instance.stageHP < 5)
+            if (isApple && GameManager.instance.stageHP < 5)
                 GameManager.instance.stageHP += 1;
+            else if (isStar)
+                GameManager.instance.stageStar += 1;
 
             //Deactive Item
             collision.gameObject.SetActive(false);
@@ -88,6 +92,7 @@ public class PlayerMove : MonoBehaviour
         else if (collision.gameObject.tag == "Finish")
         {
             //Next stage
+            GameManager.instance.NextStage();
         }
     }
 
