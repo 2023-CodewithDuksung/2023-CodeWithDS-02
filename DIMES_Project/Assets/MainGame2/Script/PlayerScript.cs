@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerScript : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Animator anim;
     private int jump=0;
+    public GameObject UIManager;
 
     Vector3 targetPosition = new Vector3(-8.0f, 0.7f, 0.0f);
     float yThreshold = -12.0f;
@@ -94,6 +96,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            GameManager.instance.loseHP();
             OnDamaged(collision.transform.position);
         }
     }
@@ -103,15 +106,19 @@ public class PlayerScript : MonoBehaviour
         if (collision.gameObject.tag == "Item")
         {
             //point
-            /*if(GameManager.instance.stageHP < 5)
-                GameManager.instance.stageHP += 1;*/
+            GameManager.instance.addHP();
 
             //Deactive Item
             collision.gameObject.SetActive(false);
         }
+        else if (collision.gameObject.tag == "Star")
+        {
+            GameManager.instance.addStar();
+        }
         else if (collision.gameObject.tag == "Finish")
         {
-            //Next stage
+            Debug.Log("collision");
+            SceneManager.LoadScene("map3");
         }
     }
 

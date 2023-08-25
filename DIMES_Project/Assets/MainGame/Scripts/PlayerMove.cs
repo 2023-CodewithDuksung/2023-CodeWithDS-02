@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
+    public GameObject sceneM;
     public float maxSpeed;
     public float jumpPower;
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
     Animator anim;
     private int jump = 0;
+    public GameObject UIManager;
 
     // Start is called before the first frame update
     void Start()
@@ -82,6 +85,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            //GameManager.instance.loseHP();
             OnDamaged(collision.transform.position);
         }
     }
@@ -91,15 +95,31 @@ public class PlayerMove : MonoBehaviour
         if (collision.gameObject.tag == "Item")
         {
             //point
-            /*if(GameManager.instance.stageHP < 5)
-                GameManager.instance.stageHP += 1;*/
+            GameManager.instance.addHP();
+
 
             //Deactive Item
             collision.gameObject.SetActive(false);
         }
+        else if(collision.gameObject.tag == "Star")
+        {
+            GameManager.instance.addStar();
+        }
         else if (collision.gameObject.tag == "Finish")
         {
-            //Next stage
+            string sceneName = SceneManager.GetActiveScene().name;
+            if (sceneName == "Level1")
+            {
+                SceneManager.LoadScene("MiniGame2");
+            }
+            if (sceneName == "Level2")
+            {
+                SceneManager.LoadScene("Map3");
+            }
+            if (sceneName == "Level3")
+            {
+                SceneManager.LoadScene("Clear");
+            }
         }
     }
 
